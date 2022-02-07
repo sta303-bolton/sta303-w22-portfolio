@@ -1,6 +1,6 @@
 ---
-title: "STA303/1002 Mini-portfolio"
-subtitle: "An exploration of data wrangling, visualization, hypothesis testing and writing skills"
+title: "STA303/1002 Portfolio"
+subtitle: "An exploration of linear mixed models and common issues misconceptions in statistics"
 author: "[Your name here, delete the square brackets too]"
 date: 2022-02-03
 lang: "en"
@@ -10,7 +10,7 @@ output:
   toc: true
   toc_depth: 2
 titlepage: true
-titlepage-color: "6C3082"
+titlepage-color: "002A5C"
 titlepage-text-color: "FFFFFF"
 titlepage-rule-color: "FFFFFF"
 titlepage-rule-height: 2
