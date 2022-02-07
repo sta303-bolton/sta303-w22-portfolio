@@ -1,0 +1,345 @@
+---
+title: "STA303/1002 Mini-portfolio"
+subtitle: "An exploration of data wrangling, visualization, hypothesis testing and writing skills"
+author: "[Your name here, delete the square brackets too]"
+date: 2022-02-03
+lang: "en"
+output:
+ pdf_document:
+  template: template.tex
+  toc: true
+  toc_depth: 2
+titlepage: true
+titlepage-color: "6C3082"
+titlepage-text-color: "FFFFFF"
+titlepage-rule-color: "FFFFFF"
+titlepage-rule-height: 2
+urlcolor: blue
+linkcolor: black
+---
+
+```{r, message=FALSE}
+# delete this chunk and follow instructions
+library(tidyverse)
+```
+
+\listoffigures
+
+\newpage
+
+# Introduction
+
+Skateboard cred vegan woke labore duis. Forage post-ironic id eu tofu tempor vice hot chicken gluten-free fam lorem ennui. Kickstarter in shaman, ipsum exercitation bespoke ugh swag iPhone commodo. Deserunt hoodie sustainable snackwave, fixie keffiyeh do seitan church-key ugh tempor stumptown before they sold out deep v. Keytar incididunt ennui aliquip, ethical pok pok church-key man bun distillery.
+
+PBR&B tempor anim pop-up craft beer, cold-pressed cardigan readymade swag gochujang pork belly vice. Biodiesel XOXO tumeric, ipsum ut cardigan cred shabby chic quis try-hard nostrud lo-fi mlkshk. La croix vegan proident kickstarter, tempor aesthetic deep v yuccie crucifix tbh. Gentrify skateboard kale chips selfies quis heirloom, godard consectetur dolore ennui microdosing activated charcoal. Photo booth ennui iceland lorem, eiusmod taxidermy cornhole migas chia four dollar toast hot chicken aliqua gochujang yuccie. In qui hoodie chillwave. Try-hard magna id post-ironic, keffiyeh before they sold out portland minim succulents.
+
+Unicorn humblebrag tilde kinfolk direct trade. Raw denim anim green juice vexillologist. IPhone migas typewriter asymmetrical. Ut lumbersexual banjo, pickled post-ironic DIY XOXO biodiesel vaporware 90's. Aliquip hashtag seitan 3 wolf moon meh officia narwhal four loko master cleanse twee. Edison bulb succulents ut, glossier microdosing enamel pin hell of celiac offal etsy. Butcher velit +1 quinoa yr mustache. 3 wolf moon raclette nostrud, woke stumptown quis waistcoat. Pitchfork blue bottle affogato kinfolk pop-up adipisicing forage listicle kitsch hashtag YOLO est mollit skateboard migas.
+
+
+\newpage
+
+# Statistical skills sample
+
+## Task 1: Setting up libraries and seed value
+
+```{r gimme_a_name}
+# An example of a comment that you can delete, 
+# as well as some code you can delete
+2+2
+```
+
+## Task 2a: Return to Statdew Valley: exploring sources of variance in a balanced experimental design (teaching and learning world)
+
+### Growinng your (grandmother's) strawberry patch
+
+```{r}
+# Don't edit this file
+# Sourcing it makes a function available
+source("grow_my_strawberries.R")
+```
+
+### Plotting the strawberry patch
+
+
+```{r, fig.height=5, fig.cap="A figure caption"}
+# Visualize! (delete this comment)
+# And here is yet another filler plot that has NOTHING to do with what you 
+# need to do in the assessment
+tibble(delete_this = rnorm(100, 10), dont_include_it = rnorm(100, 2)) %>% 
+  ggplot(aes(x = delete_this, y = dont_include_it)) +
+  geom_point(pch = 8) +
+  theme_minimal() +
+  labs(caption = "Created by YOUR NAME in STA303/1002, Winter 2022")
+```
+
+### Demonstrating calculation of sources of variance in a least-squares modelling context
+
+#### Model formula
+
+$$\text{LaTeX stuff right here! } \alpha^{2^2}_{ij} + \beta_{bloop} + \delta + \epsilon $$
+where:
+
+- $\alpha^{2^2}_{ij}$ is some utter nonsense, and
+- $\beta_{bloop}$ doesn't mean anything either
+
+
+```{r}
+# Lots and lots of code! Woo!
+```
+
+
+```{r}
+# Example tibble
+tibble(`Source of variation` = c("Source 1", 
+                                 "Source 2", 
+                                 "Source 4"),
+       Variance = c("var_b", "var_ab", "var_int"),
+       Proportion = c(round(0.3333333, 2),
+                      round(0.3333333, 2),
+                      round(0.3333333,2) )) %>% 
+  knitr::kable(caption = "An example table, where you can replace the appropriate values, including removing the quote marks around the variance values and calculating the proportions values")
+```
+
+
+## Task 2b: Applying linear mixed models for the strawberry data (practical world)
+
+```{r}
+# MODELS!
+```
+
+
+Hoodie kombucha in, cornhole prism id brunch pabst before they sold out. Knausgaard microdosing four dollar toast chia small batch, hot chicken etsy. Laborum jean shorts selfies, cupidatat ad tumeric craft beer elit waistcoat master cleanse chambray excepteur +1. Waistcoat taxidermy air plant vexillologist, church-key brooklyn coloring book.
+
+### Justification and interpreation
+
+Cillum narwhal authentic, cliche exercitation twee ramps velit irure culpa gentrify neutra post-ironic. Austin letterpress cillum, eiusmod hexagon pinterest irony semiotics blue bottle consequat. Fam pug tousled minim. Crucifix nisi la croix in. Beard tacos consectetur single-origin coffee tousled.
+
+Echo park butcher mustache tbh consectetur master cleanse, PBR&B sustainable. Brooklyn direct trade quinoa chia listicle. Heirloom fixie crucifix leggings meditation trust fund air plant gluten-free. Skateboard lorem tousled before they sold out, shabby chic coloring book aesthetic meh sint adipisicing selvage in man braid eu. Snackwave ullamco ipsum mixtape.
+
+## Task 3a: Building a confidence interval interpreter
+
+```{r ci_template, warning = FALSE}
+
+interpret_ci <- function(lower, upper, ci_level, stat){
+  if(!is.character(stat)) {
+    # produce a warning if the statement of the parameter isn't a character string
+    # the spacing is a little weird looking so that it prints nicely in your pdf
+    warning("
+    Warning:
+    stat should be a character string that describes the statistics of 
+    interest. The first part of this would be appropriate error text for this 
+    issue. You can reuse it as in in your code (not plagairisim concern), 
+    just make sure you delete this part.")
+  } else if(!is.numeric(lower)) {
+    # produce a warning if lower isn't numeric
+    warning("Warning: NOPE! This error message should be improved.")
+  } else if(!is.numeric(upper)) {
+    # produce a warning if upper isn't numeric
+    warning("Warning: NOPE! This error message should be improved.")
+  } else if(!is.numeric(ci_level) | ci_level < 0 | ci_level > 100) {
+    # produce a warning if ci_level isn't appropriate
+    warning("Warning: Your ci_level is wrooooong. 
+    This error message should be improved.")
+  } else{
+    # print interpretation
+    # this is the main skill I want to see, writing a good CI interpretation.
+  str_c("This is the confidence level: ", ci_level, 
+        "%. And the text fed to stat is ", stat, 
+        ". There is also the lower and upper bounds: ", lower, " and ", upper, 
+        ". This part needs to be fixed!" )
+  }
+}
+
+# Test 1
+ci_test1 <- interpret_ci(10, 20, 99, "mean number of shoes owned by students")
+
+# Test 2
+ci_test2 <- interpret_ci(10, 20, -1, "mean number of shoes owned by students")
+
+# Test 3
+ci_test3 <- interpret_ci(10, 20, 95, 99)
+```
+
+__CI function test 1:__ `r ci_test1`
+
+__CI function test 2:__ `r ci_test2`
+
+__CI function test 3:__ `r ci_test3`
+
+## Task 3b: Building a p value interpreter
+
+```{r pval_template, warning = FALSE}
+# message=FALSE means we will not get the warnings
+# This is just an example! MODIFY THIS CODE
+interpret_pval <- function(pval, nullhyp){
+  if(!is.character(nullhyp)) {
+    warning("
+            Warning: Excuse me, why isn't nullyhyp a character string? 
+            This is not an appropriate error message, FYI. 
+            Make yours more professional.")
+  } else if(!is.numeric(pval)) {
+    warning("You p value should be a number.")
+  }  else if(pval > 1) {
+    warning("
+            Warning: What do you mean, a p value greater than 1?!?! 
+            No way. 
+            This is also not an appropriately professional error message.")
+  } else if(pval < 0){
+    warning("
+            Warning: Negative? I don't think so! 
+            This is also not an appropriately professional error message.")
+  } else if(pval > 0.05){
+    str_c("The p value is ", round(pval, 5), 
+                ", we fail to reject the hyothesis that ", nullhyp)
+  } else if(pval <= 0.05){
+    str_c("The p value is ", round(pval, 5), 
+                ", we reject the hypothesis that ", nullhyp, ".")
+  }
+}
+
+pval_test1 <- interpret_pval(0.0000000003, 
+                             "the mean grade for statistics students is the same as for non-stats students")
+
+pval_test2 <- interpret_pval(0.0499999, 
+                             "the mean grade for statistics students is the same as for non-stats students")
+
+pval_test3 <- interpret_pval(0.050001, 
+                             "the mean grade for statistics students is the same as for non-stats students")
+
+pval_test4 <- interpret_pval("0.05", 7)
+
+```
+
+__p value function test 1:__ `r pval_test1`
+
+__p value function test 2:__ `r pval_test2`
+
+__p value function test 3:__ `r pval_test3`
+
+__p value function test 4:__ `r pval_test4`
+
+## Task 3c: User instructions and disclaimer
+
+### Instructions
+
+Occupy iceland meggings, nulla ugh gochujang flexitarian humblebrag poke ennui poutine occaecat. Cold-pressed pabst yuccie, man bun tattooed gastropub eiusmod iceland PBR&B salvia tacos readymade dolore. Vice tattooed whatever ut ullamco vape. Banh mi live-edge art party wolf officia craft beer offal dolore gochujang nisi poutine. Freegan food truck street art eu iceland quinoa messenger bag distillery 3 wolf moon cupidatat bitters kogi eiusmod mollit austin. Consectetur tbh kogi est ethical try-hard vegan copper mug craft beer dolore leggings.
+
+Plaid fixie gastropub, polaroid cold-pressed tote bag lumbersexual blue bottle pok pok thundercats. Irure prism polaroid, poutine pop-up quinoa banh mi trust fund hashtag knausgaard. Adipisicing tote bag ad in. Celiac kale chips air plant, voluptate trust fund jianbing hell of. Anim officia cornhole plaid readymade raclette green juice neutra shoreditch occaecat blue bottle vape. Kinfolk blog poutine aliquip jean shorts, sint kickstarter fixie taxidermy tousled prism bicycle rights trust fund vexillologist tote bag.
+
+### Disclaimer
+
+Typewriter tumblr sartorial four loko unicorn coloring book freegan. Roof party aliqua farm-to-table gluten-free williamsburg flannel craft beer. Consectetur snackwave marfa franzen listicle. Exercitation mollit humblebrag, subway tile flannel ennui YOLO meggings poutine PBR&B tbh hoodie.
+
+I'm baby shabby chic echo park veniam, duis pug scenester farm-to-table ennui keytar shoreditch. Magna actually do narwhal forage, four dollar toast kombucha tumblr vice palo santo slow-carb. Ea chia man braid authentic. Hammock readymade migas ex cupidatat. Vape pabst tousled man bun celiac.
+
+## Task 4: Creating a reproducible example (reprex)
+
+Roof party poke cronut pabst est, anim dolore squid authentic. Ipsum neutra hoodie, fanny pack iceland godard banh mi marfa organic occaecat snackwave adipisicing venmo. Gochujang man braid hot chicken tumeric esse messenger bag. Live-edge before they sold out velit, celiac disrupt labore gastropub activated charcoal readymade tumblr echo park craft beer intelligentsia trust fund. Lyft cray food truck keytar blue bottle taxidermy, gochujang vape street art chambray gluten-free. Shaman fam chambray try-hard. Ut forage nostrud, ullamco gentrify messenger bag biodiesel air plant taiyaki seitan YOLO fam veniam four loko tumeric.
+
+```r
+Your reprex should be in an R formatted, but not run, code format like this.
+```
+
+\newpage
+
+## Task 5: Simulating p-values
+
+### Setting up simulated data
+
+```{r}
+# Simulations!
+```
+
+
+```{r, echo-FALSE, fig.cap = "This is a figure caption", fig.height = 4}
+
+# Visualize! (delete this comment)
+# And here is yet another filler plot that has NOTHING to do with what you 
+# need to do in the assessment
+tibble(delete_this = rnorm(100, 10), dont_include_it = rnorm(100, 2)) %>% 
+  ggplot(aes(x = delete_this, y = dont_include_it)) +
+  geom_point() +
+  theme_minimal() +
+  labs(caption = "Created by YOUR NAME in STA303/1002, Winter 2022")
+```
+
+### Calculating _p_ values
+
+```{r}
+# Code! 
+```
+
+
+```{r, fig.height = 3, fig.cap = "This is a figure caption"}
+# Visualize! (delete this comment)
+# This filler plot that has NOTHING to do with what you 
+# need to do in the assessment
+tibble(delete_this = rnorm(100, 10), dont_include_it = rnorm(100, 2)) %>% 
+  ggplot(aes(x = delete_this, y = dont_include_it)) +
+  geom_point() +
+  theme_minimal() +
+  labs(caption = "Created by YOUR NAME in STA303/1002, Winter 2022")
+
+```
+
+### Drawing Q-Q plots
+
+```{r, fig.height = 4, fig.cap = "This is a figure caption"}
+# Visualize! (delete this comment)
+# This filler plot that has NOTHING to do with what you 
+# need to do in the assessment
+tibble(delete_this = rnorm(100, 10), dont_include_it = rnorm(100, 2)) %>% 
+  ggplot(aes(x = delete_this, y = dont_include_it)) +
+  geom_point() +
+  theme_minimal() +
+  labs(caption = "Created by YOUR NAME in STA303/1002, Winter 2022")
+
+```
+
+### Conclusion and summary
+
+Hexagon viral williamsburg eiusmod. Aute glossier ut, tilde normcore synth viral. Next level jianbing vegan pok pok gochujang anim twee pitchfork kale chips meh cornhole truffaut. Id nulla echo park, keffiyeh shoreditch voluptate dreamcatcher.
+
+You probably haven't heard of them normcore pariatur, sustainable crucifix la croix brooklyn duis unicorn mumblecore tacos food truck godard. Organic distillery enamel pin swag +1 laborum readymade. Tilde nostrud kickstarter, adaptogen sartorial raclette yuccie consectetur. 3 wolf moon hot chicken poutine live-edge, etsy dolore offal kickstarter thundercats voluptate roof party adipisicing beard. Synth humblebrag keytar, mollit fashion axe woke church-key shaman distillery in mlkshk consectetur green juice readymade palo santo. Blog anim air plant sustainable ea, proident typewriter edison bulb velit. Raclette kogi mustache yuccie vape hot chicken sunt ad organic.
+
+\newpage
+
+# Writing sample
+
+Vape sunt aute, normcore fam ipsum squid yuccie fixie celiac fashion axe yr. Commodo occaecat chillwave master cleanse jean shorts. Bushwick narwhal asymmetrical, swag celiac cray drinking vinegar meditation meggings lumbersexual banh mi VHS sed tbh dreamcatcher. Ea hoodie twee vegan, selfies cupidatat hot chicken tousled four dollar toast pabst biodiesel lorem intelligentsia try-hard. Asymmetrical man bun brunch four loko pug, ut keffiyeh occaecat glossier snackwave actually. Sed microdosing proident, you probably haven't heard of them seitan ex mollit vaporware butcher flannel vexillologist tempor.
+
+Selfies tilde aliquip elit subway tile, chicharrones pour-over cillum. Lomo 8-bit affogato eu, tofu succulents hammock scenester marfa. Sunt PBR&B proident bespoke craft beer deep v 3 wolf moon, aliqua neutra velit. Lyft voluptate twee in, readymade slow-carb ex 8-bit cold-pressed forage pork belly nostrud kickstarter plaid. Marfa hammock hella pok pok plaid. Poutine pickled non bicycle rights flannel mustache 8-bit.
+
+Semiotics 90's activated charcoal chillwave eu tacos. Sustainable laborum in, leggings fixie retro crucifix gochujang health goth. Franzen wolf esse cornhole aesthetic coloring book etsy kombucha four dollar toast raclette hashtag pug brunch single-origin coffee crucifix. Kinfolk chia yuccie echo park. Drinking vinegar vaporware tousled lorem bicycle rights pug asymmetrical wayfarers master cleanse. Ethical sartorial lumbersexual, selfies succulents copper mug ad bicycle rights thundercats dolore. Slow-carb narwhal air plant seitan before they sold out pork belly kitsch williamsburg.
+
+Blue bottle yuccie qui in voluptate pour-over ullamco, artisan lorem lumbersexual. Tbh 90's four loko, sustainable tofu pop-up plaid narwhal polaroid lo-fi hashtag iPhone. Gentrify tofu ex hot chicken laboris. Tofu live-edge normcore, sunt taiyaki ea iceland chartreuse selfies paleo drinking vinegar letterpress. Ramps trust fund street art meggings exercitation id man braid lyft pabst jean shorts chia tattooed pour-over anim. Excepteur succulents in, sartorial aliqua occaecat knausgaard green juice.
+
+Adipisicing chia est keffiyeh pitchfork brunch poke nisi. Semiotics glossier hammock humblebrag PBR&B hot chicken. Whatever cronut green juice knausgaard. Echo park cliche blog, raclette in tattooed kogi +1 vice bitters vinyl thundercats poke. Unicorn truffaut blue bottle squid consectetur. Consectetur post-ironic hashtag fam, pug meditation trust fund listicle shoreditch blog four loko activated charcoal taiyaki sint. Veniam bitters dolor craft beer try-hard retro pop-up voluptate kickstarter pok pok in.
+
+**Word count:** 377 words
+
+
+## References
+
+> Motulsky, H. J. (2014). Common misconceptions about data analysis and statistics. *Naunyn-Schmiedeberg's Archives of Pharmacology*, *387*(11), 1017--1023. <https://doi.org/10.1007/s00210-014-1037-6>
+
+
+\newpage
+
+# Reflection
+
+### What is something specific that I am proud of in this portfolio?
+
+Affogato mustache iceland PBR&B lomo stumptown. Wayfarers pop-up food truck tofu, asymmetrical pabst mustache direct trade. Cred hoodie try-hard man bun blog cronut, poke sriracha brunch pour-over aesthetic sartorial trust fund kombucha narwhal. Pickled poutine post-ironic deep v ennui aesthetic biodiesel. Stumptown DIY franzen gentrify aesthetic, jianbing lumbersexual banjo lyft cornhole iceland.
+
+### How might I apply what I've learned and demonstrated in this portfolio in future work and study, after STA303/1002?
+
+Shabby chic hammock whatever, leggings 3 wolf moon brunch aesthetic food truck art party gluten-free humblebrag blog tofu chartreuse glossier. Flannel selvage crucifix hoodie mlkshk. DIY viral forage post-ironic roof party leggings unicorn chia pour-over. Chartreuse swag food truck jean shorts aesthetic. Readymade photo booth actually art party quinoa. Ennui pour-over vape, biodiesel copper mug humblebrag microdosing ethical VHS.
+
+### What is something I'd do differently next time?
+
+Put a bird on it taxidermy tattooed vegan gochujang heirloom. Kombucha offal vinyl disrupt truffaut mixtape whatever wayfarers. Pinterest meh wolf, fashion axe readymade cloud bread XOXO narwhal poke tilde tattooed ramps photo booth meditation tbh. Actually intelligentsia hella yr.
+
+Sustainable direct trade man bun organic franzen forage. Crucifix swag woke man braid. Kitsch street art vexillologist tacos hoodie ramps four dollar toast disrupt edison bulb live-edge 8-bit cornhole lyft blue bottle. Synth mumblecore flexitarian poutine.
+
+Delete this: All filler text sourced from: [Hipster Ipsum](https://hipsum.co/)
