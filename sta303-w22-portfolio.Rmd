@@ -1,6 +1,6 @@
 ---
 title: "STA303/1002 Portfolio"
-subtitle: "An exploration of linear mixed models and common issues misconceptions in statistics"
+subtitle: "An exploration of linear mixed models and common misconceptions in statistics"
 author: "[Your name here, delete the square brackets too]"
 date: 2022-02-03
 lang: "en"
